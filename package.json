@@ -4,6 +4,7 @@
   "description": "Simple GRaphQL",
   "main": "server.js",
   "scripts": {
+    "start":"node index.js",
     "dev:server": "nodemon server.js",
     "json:server":"json-server --watch data.json"
   },

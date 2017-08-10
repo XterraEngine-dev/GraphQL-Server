@@ -52,7 +52,7 @@ const RootQuery = new GraphQLObjectType({
                     }
                 }
                 */
-                return axios.get('http://azazelxt.herokuapp.com/customers/' + args.id)
+                return axios.get('https://xteapi.herokuapp.com/db/' + args.id)
                     .then(res => res.data);
 
 
@@ -62,7 +62,7 @@ const RootQuery = new GraphQLObjectType({
             type: new GraphQLList(CustomerType),
             resolve(parentValue, args) {
 
-                return axios.get('http://azazelxt.herokuapp.com/customers/')
+                return axios.get('https://xteapi.herokuapp.com/db/')
                     .then(res => res.data);
             }
         }
@@ -82,7 +82,7 @@ const mutation = new GraphQLObjectType({
                 age: { type: new GraphQLNonNull(GraphQLInt) },
             },
             resolve(parentValue, args) {
-                return axios.post('http://azazelxt.herokuapp.com/customers/', {
+                return axios.post('https://xteapi.herokuapp.com/db/', {
                     name: args.name,
                     email: args.email,
                     age: args.age
@@ -96,7 +96,7 @@ const mutation = new GraphQLObjectType({
                 id: { type: new GraphQLNonNull(GraphQLString) }
             },
             resolve(parentValue, args) {
-                return axios.delete('http://azazelxt.herokuapp.com/customers/' + args.id, {
+                return axios.delete('https://xteapi.herokuapp.com/db/' + args.id, {
                     name: args.name,
                     email: args.email,
                     age: args.age
@@ -113,7 +113,7 @@ const mutation = new GraphQLObjectType({
                 age: { type: GraphQLInt },
             },
             resolve(parentValue, args) {
-                return axios.patch('http://azazelxt.herokuapp.com/customers/' + args.id, args)
+                return axios.patch('https://xteapi.herokuapp.com/db/' + args.id, args)
                     .then(res => res.data);
             }
         }
